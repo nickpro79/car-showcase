@@ -1,12 +1,14 @@
+const config = require('./config');
+
 export async function fetchCars(){
     const headers ={
         'X-RapidAPI-Key': 
-        '5c5357a4c8msh08eed39856fed0cp1d052cjsnc0734c66f669',
+        config.rapidAPIKey,
 		'X-RapidAPI-Host':
          'cars-by-api-ninjas.p.rapidapi.com'
     }
 
-    const response = await fetch('https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?model=corolla',{
+    const response = await fetch('https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?model=carrera',{
         headers: headers,
     });
     const result = await response.json()
@@ -26,3 +28,4 @@ export const calculateCarRent = (city_mpg: number, year: number) => {
     return rentalRatePerDay.toFixed(0);
   };
   
+
